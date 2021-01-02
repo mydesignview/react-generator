@@ -1,0 +1,11 @@
+@import './fonts.scss';
+@import './colors.scss';
+
+@include fonts-face("SourceSansPro-Regular.ttf", "Source Sans Pro Regular");
+@include fonts-face("SourceSansPro-Bold.ttf", "Source Sans Pro Bold");
+@include fonts-face("SourceSansPro-SemiBold.ttf", "Source Sans Pro Semi Bold");
+@include fonts-face("SourceSansPro-Black.ttf", "Source Sans Pro Black");
+@include fonts-face("SourceSansPro-Light.ttf", "Source Sans Pro Light");
+
+
+

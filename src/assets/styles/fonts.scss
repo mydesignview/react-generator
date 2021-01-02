@@ -1,0 +1,18 @@
+$sourceSan-font-path: "../fonts/sourceSan/";
+
+@mixin fonts-face($fontName, $displayName) {
+    @font-face {
+        src: url("#{$sourceSan-font-path}#{$fontName}") format("truetype");
+        font-family: #{$displayName};  
+    }
+}
+
+@mixin  font-name($fontName) {
+    font-family: 'Source Sans Pro #{$fontName}', sans-serif;
+}
+
+@mixin font-weight($weight) {
+    font-weight: $weight;
+}
+
+
