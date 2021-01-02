@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const webpack = require("webpack");
 
 module.exports = {
   devServer: {
@@ -10,32 +9,33 @@ module.exports = {
     historyApiFallback: true,
   },
   devtool: 'inline-source-map',
-  entry:  ['./src/assets/scripts/index.js', './src/assets/styles/index.scss'],
-  mode:'development',
+  entry: ['./src/assets/scripts/index.js', './src/assets/styles/index.scss'],
+  mode: 'development',
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
       },
       {
         test: /\.s[ac]ss$/i,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader, 
+            loader: MiniCssExtractPlugin.loader,
             options: {
-                publicPath: ''
-            }
-        },
-        {
-            loader: "css-loader", 
-            options: { sourceMap: true}
-        },{
-          loader: "sass-loader", 
-          options: { sourceMap: true }
-        }
-        ]
+              publicPath: '',
+            },
+          },
+          {
+            loader: 'css-loader',
+            options: { sourceMap: true },
+          },
+          {
+            loader: 'sass-loader',
+            options: { sourceMap: true },
+          },
+        ],
       },
       {
         test: /\.svg$/,
@@ -48,14 +48,14 @@ module.exports = {
       {
         test: /\.(png|jpg|jpeg|gif)$/i,
         loader: 'file-loader',
-        options: { outputPath: 'assets/images', publicPath: '../images', useRelativePaths: true }
+        options: { outputPath: 'assets/images', publicPath: '../images', useRelativePaths: true },
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         loader: 'file-loader',
-        options: { outputPath: 'assets/fonts', publicPath: '../fonts', useRelativePaths: true }
-      }
-    ]
+        options: { outputPath: 'assets/fonts', publicPath: '../fonts', useRelativePaths: true },
+      },
+    ],
   },
   output: {
     filename: 'assets/scripts/[name].bundle.js',
@@ -68,12 +68,8 @@ module.exports = {
       title: 'Output Management',
       template: 'src/index.html',
       filename: 'index.html',
-      favicon: 'src/assets/images/fav.png'
+      favicon: 'src/assets/images/fav.png',
     }),
-    new MiniCssExtractPlugin({filename:'assets/styles/[name]-styles.css'}),
-    new webpack.ProvidePlugin({
-      $: "jquery",
-      jQuery: "jquery"
-    })
-  ]
+    new MiniCssExtractPlugin({ filename: 'assets/styles/[name]-styles.css' }),
+  ],
 };
